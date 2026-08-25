@@ -114,6 +114,20 @@ Testene kontrollerer blandt andet:
 - at ugyldig JSON afvises kontrolleret
 
 ## Test med MCP Inspector
+MCP Inspector er et testværktøj til MCP-servere.
+
+Det bruges til at kontrollere, om serveren starter korrekt, og om dens MCP-funktioner virker som forventet.
+
+Vi tester typisk:
+
+om MCP-serveren kan forbindes til
+hvilke resources serveren stiller til rådighed
+hvilke tools der findes, og om de kan kaldes
+hvilke prompts serveren tilbyder
+om input og output ser rigtige ud
+om der opstår fejl i kommunikationen mellem klient og server
+
+MCP Inspector bruges til at teste MCP-serveren, før den kobles på fx Claude, ChatGPT eller en anden MCP-klient.
 
 Kør:
 
