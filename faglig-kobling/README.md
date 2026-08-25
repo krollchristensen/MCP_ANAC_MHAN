@@ -1,6 +1,6 @@
 # MCP i Teknologi 2
 
-MCP kan indgå i Teknologi 2 som case for netværk, distribuerede systemer, virtualisering, deployment, hosting, sikkerhed og bæredygtighed. Fokus er på teknologivalget og infrastrukturen, ikke på et bestemt servereksempel.
+MCP kan indgå i Teknologi II som case for netværk, distribuerede systemer, virtualisering, deployment, hosting, sikkerhed og bæredygtighed. Fokus er på teknologivalget og infrastrukturen, ikke på et bestemt servereksempel.
 
 [Tilbage til den faglige oversigt](../README.md)
 
@@ -50,7 +50,7 @@ Docker er en relevant mulighed, men ikke et krav for at anvende MCP fagligt i Te
 
 ## Kontrolpunkt
 
-Den studerende skal kunne begrunde, hvor serveren bør køre, hvordan klienten forbinder, og hvilke konsekvenser valget har for drift, sikkerhed og ressourceforbrug.
+Den studerende skal kunne begrunde hvor serveren bør køre, hvordan klienten forbinder, og hvilke konsekvenser valget har for drift, sikkerhed og ressourceforbrug.
 
 ## Kilde
 
