@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "Læs introduktionen til MCP",
+    "completed": true
+  },
+  {
+    "id": 2,
+    "title": "Test MCP-serveren med Inspector",
+    "completed": false
+  },
+  {
+    "id": 3,
+    "title": "Forklar forskellen på en resource og et tool",
+    "completed": false
+  },
+  {
+    "id": 4,
+    "title": "TestTask",
+    "completed": true
+  },
+  {
+    "id": 5,
+    "title": "Test MCP-serveren fra GitHub Copilot",
+    "completed": true
+  }
+]
