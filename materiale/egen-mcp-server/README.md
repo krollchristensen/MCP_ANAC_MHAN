@@ -33,6 +33,11 @@ IntelliJ starter Node.js-processen. MCP-beskeder sendes gennem processens standa
 Serveren må derfor ikke skrive almindelige logs til `stdout`. Det vil ødelægge MCP-beskederne. Eksemplet anvender `console.error`, som skriver til `stderr`.
 
 ## Serverens capabilities
+Serveren giver ikke AI’en fri adgang til hele computeren. Den tilbyder kun:
+
+Læs alle tasks
+Opret en task
+Afslut en task
 
 | Type | Navn | Funktion |
 | --- | --- | --- |
