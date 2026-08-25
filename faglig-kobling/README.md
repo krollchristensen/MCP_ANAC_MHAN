@@ -1,38 +1,57 @@
-# Faglig kobling
+# MCP i Teknologi 2
 
-MCP er ikke et selvstændigt læringsmål i studieordningen. Det er et tidssvarende udviklingsværktøj, som kan bruges til at arbejde med eksisterende læringsmål om programmering, systemudvikling, teknologi og sikkerhed.
+MCP kan indgå i Teknologi 2 som case for netværk, distribuerede systemer, virtualisering, deployment, hosting, sikkerhed og bæredygtighed. Fokus er på teknologivalget og infrastrukturen, ikke på et bestemt servereksempel.
 
-Koblingen skal altid tage udgangspunkt i fagets mål. De studerende skal ikke blot få en AI-agent til at løse en opgave. De skal kunne forklare arkitekturen, kontrollere værktøjskald, teste resultatet og begrunde sikkerhedsvalg.
+[Tilbage til den faglige oversigt](../README.md)
 
-## Progression
+## Kobling til studieordningen
 
-```mermaid
-flowchart TB
-    P1["Programmering 1 - byg og test"] --> S1["Systemudvikling 1 - krav og kvalitet"]
-    S1 --> T1["Teknologi 1 - processer og data"]
-    T1 --> P2["Programmering 2 - integration"]
-    P2 --> T2["Teknologi 2 - drift og Docker"]
-    T2 --> IS["IT-sikkerhed - security by design"]
-```
+Teknologi 2 omhandler teknologiske problemstillinger inden for netværk, distribuerede systemer og sikkerhed under hensyntagen til bæredygtighed. Deployment og hosting indgår ligeledes i fagelementet.
 
-Progressionen er vejledende. De enkelte fag kan arbejde parallelt med forskellige dele af samme eksempel.
+| Fokus i faget | Mulig MCP-aktivitet |
+| --- | --- |
+| Distribuerede systemer | Analysér placering og kommunikation mellem host, server og eksterne tjenester |
+| Netværk | Undersøg adresser, porte, DNS, TLS og forbindelsesfejl ved remote MCP |
+| Applikationsprotokoller | Sammenlign MCP-transport med HTTP-baserede API'er |
+| Virtualisering | Kør en MCP-server i en container eller virtuel maskine |
+| Deployment og hosting | Etablér og dokumentér et reproducerbart driftsmiljø |
+| Sikkerhed | Begræns netværk, rettigheder, secrets og adgang til data |
+| Bæredygtighed | Vurder ressourceforbrug, skalering og levetid for infrastrukturen |
 
-## Materiale til fagene
+## Mulige undervisningsaktiviteter
 
-- [Programmering 1](programmering-1/README.md)
-- [Systemudvikling 1](systemudvikling-1/README.md)
-- [Teknologi 1](teknologi-1/README.md)
-- [Programmering 2](programmering-2/README.md)
-- [Teknologi 2](teknologi-2/README.md)
-- [IT-sikkerhed - Softwaresikkerhed](it-sikkerhed/README.md)
+- Sammenlign lokal afvikling, containerafvikling og en remote tjeneste.
+- Containerisér en selvvalgt MCP-server og dokumentér image, bruger, volumes og netværk.
+- Undersøg Streamable HTTP og de netværkskomponenter, der indgår i forbindelsen.
+- Konfigurér TLS og vurder behovet for autentifikation og autorisation.
+- Design et deployment med miljøvariabler og sikker håndtering af secrets.
+- Mål eller estimer ressourceforbrug ved forskellige driftsformer.
+- Vurder om en gateway giver en reel driftsfordel i en løsning med flere MCP-servere.
 
-## Fælles minimumskrav
+## Sammenligningsramme
 
-Uanset fag bør de studerende kunne:
+| Driftsform | Fordel | Udfordring |
+| --- | --- | --- |
+| Lokal proces | Enkel og tæt på brugeren | Afhænger af lokalt miljø og lokale rettigheder |
+| Container | Reproducerbart og isoleret miljø | Kræver styring af volumes, bruger og netværk |
+| Remote service | Fælles adgang og central drift | Kræver sikkerhed, overvågning og skalering |
+| Gateway | Central konfiguration af flere servere | Tilføjer et ekstra drifts- og tillidslag |
 
-1. forklare, hvilket problem MCP-serveren løser
-2. skelne mellem host, klient, server og eksternt system
-3. skelne mellem resources, tools og prompts
-4. forklare hvilke data og handlinger serveren giver adgang til
-5. kontrollere og teste serverens resultat
-6. vurdere rettigheder og mulige risici
+Docker er en relevant mulighed, men ikke et krav for at anvende MCP fagligt i Teknologi 2.
+
+## Forslag til leverance
+
+- infrastruktur- og netværksdiagram
+- reproducerbar deploymentvejledning
+- dokumentation af transport og sikkerhedsindstillinger
+- sammenligning af mindst to driftsformer
+- begrundet teknologivalg
+- kort vurdering af ressourceforbrug og bæredygtighed
+
+## Kontrolpunkt
+
+Den studerende skal kunne begrunde, hvor serveren bør køre, hvordan klienten forbinder, og hvilke konsekvenser valget har for drift, sikkerhed og ressourceforbrug.
+
+## Kilde
+
+- [Samlet studieordning for Datamatiker 2026](https://www.zealand.dk/wp-content/uploads/2016/09/Samlet-studieordning-Datamatiker-2026.pdf)

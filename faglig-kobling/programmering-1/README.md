@@ -1,57 +1,50 @@
 # MCP i Programmering 1
 
-MCP-serveren kan anvendes som en lille, praksisnær Node.js-applikation, hvor de studerende arbejder med funktioner, datatyper, JSON, inputvalidering, fejlhåndtering og test.
+MCP kan indgå i Programmering 1 som en praksisnær ramme for programdesign, implementering, dataadgang, test og dokumentation. Det er ikke nødvendigt at anvende en bestemt server eller et bestemt domæne.
 
 [Tilbage til den faglige oversigt](../README.md)
 
-## Kobling til læringsmål
+## Kobling til studieordningen
 
-Eksemplet kan understøtte arbejdet med:
+Programmering 1 omhandler design og programmering af IT-systemer af høj kvalitet i en hensigtsmæssig arkitektur. Faget omfatter blandt andet programmeringssprog, algoritmer, datastrukturer, databaser, samtidighed, udviklingsmiljøer, biblioteker, test og kvalitetssikring.
 
-- programmer af høj kvalitet i en hensigtsmæssig arkitektur
-- anvendelse af et udbredt udviklingsmiljø og centrale biblioteker
-- test, kvalitetssikring og dokumentation
-- vurdering af kvalitative egenskaber ved kode
+MCP kan understøtte disse mål, når de studerende arbejder med selve programløsningen og ikke kun med AI-klienten.
 
-MCP er værktøj og kontekst. De programmeringsfaglige mål er stadig kodekvalitet, forståelse og test.
+| Fokus i faget | Mulig MCP-aktivitet |
+| --- | --- |
+| Hensigtsmæssig arkitektur | Adskil MCP-lag, domænelogik og dataadgang |
+| Centrale biblioteker | Anvend og dokumentér et relevant MCP-SDK |
+| Database | Udstil afgrænset læse- eller skriveadgang til en database |
+| Samtidighed | Undersøg samtidige kald og beskyt delte data |
+| Test og kvalitetssikring | Test tool-handlers, validering, fejl og domænelogik |
+| Dokumentation | Beskriv capabilities, input, output og begrænsninger |
 
-## Foreslået aktivitet
+## Mulige undervisningsaktiviteter
 
-De studerende starter med den eksisterende server og tilføjer dette tool:
+- Tilføj et MCP-lag til en eksisterende mindre applikation.
+- Udstil en afgrænset domænefunktion som et tool.
+- Udstil aktuelle data som en resource uden at give adgang til vilkårlige filer eller tabeller.
+- Sammenlign direkte fil- eller databaseadgang med adgang gennem et repository eller servicelag.
+- Skriv automatiserede test af gyldigt input, ugyldigt input og forventede fejl.
+- Vurder kodekvalitet og refaktorér en løsning med for tæt kobling mellem protokol og domænelogik.
 
-```text
-get_task_statistics
-```
+Domænet kan eksempelvis være bøger, produkter, reservationer, sensordata eller et eksisterende semesterprojekt.
 
-Tool'et skal returnere:
+## Forslag til leverance
 
-- antal tasks i alt
-- antal færdige tasks
-- antal åbne tasks
+Den studerende kan aflevere:
 
-## Krav
-
-1. Beregningen placeres i `TaskStore`.
-2. MCP-laget må kun formatere resultatet.
-3. Der skrives mindst tre enhedstest.
-4. En tom taskliste skal håndteres.
-5. De studerende skal kunne forklare hele kaldet fra prompt til resultat.
-
-```mermaid
-flowchart LR
-    P[Brugerens prompt] --> T[get_task_statistics]
-    T --> S[TaskStore]
-    S --> J[(tasks.json)]
-    S --> R[Statistik]
-    R --> P
-```
+- kildekode med en tydelig opdeling i ansvar
+- automatiserede test
+- en kort arkitekturforklaring
+- dokumentation af serverens capabilities
+- eksempler på både accepteret og afvist input
+- en vurdering af løsningens programkvalitet
 
 ## Kontrolpunkt
 
-Den studerende skal vise, at resultatet kommer fra den aktuelle JSON-fil og ikke er beregnet eller gættet af sprogmodellen.
+Den studerende skal kunne følge et kald fra MCP-grænsefladen gennem domænelogikken til data og tilbage igen. Den studerende skal også kunne forklare, hvordan resultatet er testet og verificeret.
 
-## Relevant materiale
+## Kilde
 
-- [Egen MCP-server](../../materiale/egen-mcp-server/README.md)
-- [Hovedintroduktion til MCP](../../README.md)
-
+- [Samlet studieordning for Datamatiker 2026](https://www.zealand.dk/wp-content/uploads/2016/09/Samlet-studieordning-Datamatiker-2026.pdf)

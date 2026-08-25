@@ -1,63 +1,57 @@
 # MCP i Systemudvikling 1
 
-I Systemudvikling 1 anvendes MCP-eksemplet til at arbejde med krav, arkitektur, kvalitetssikring og sporbarhed. Fokus er ikke først og fremmest at skrive serverkode, men at beskrive og kontrollere en ændring.
+MCP kan indgå i Systemudvikling 1 som case for behovsafdækning, krav, modellering, arkitektur, kvalitetssikring og sporbarhed. Det er ikke nødvendigt at implementere en MCP-server for at arbejde fagligt med emnet.
 
 [Tilbage til den faglige oversigt](../README.md)
 
-## Kobling til læringsmål
+## Kobling til studieordningen
 
-Eksemplet kan understøtte arbejdet med:
+Systemudvikling 1 omhandler analyse af et problemområde og design af et mindre system. Faget omfatter blandt andet systemudviklingsmetoder, krav, modeller, softwarearkitektur, brugergrænseflader, test, kvalitetssikring, dokumentation og sporbarhed.
 
-- analyse af en praksisnær problemstilling
-- formulering og vurdering af krav
-- anvendelse af en hensigtsmæssig softwarearkitektur
-- planlægning og udførelse af test og kvalitetssikring
-- dokumentation og sporbarhed mellem krav, implementering og test
+En MCP-integration er velegnet som case, fordi dens capabilities udgør en tydelig grænse mellem en AI-klient og et informationssystem.
 
-## Foreslået aktivitet
+| Fokus i faget | Mulig MCP-aktivitet |
+| --- | --- |
+| Behov og interessenter | Undersøg hvem der skal bruge integrationen og hvorfor |
+| Krav | Beskriv tilladte handlinger, data, fejl og begrænsninger |
+| Analyse og design | Modellér domæne, ansvar og centrale interaktioner |
+| Softwarearkitektur | Placér MCP-laget i forhold til brugergrænseflade, services og data |
+| Test og kvalitet | Udled test fra krav og acceptkriterier |
+| Dokumentation og sporbarhed | Forbind behov, krav, design, implementering og test |
 
-Gruppen skal specificere en udvidelse, hvor en task kan få en prioritet:
+## Mulige undervisningsaktiviteter
 
-```text
-LOW
-MEDIUM
-HIGH
-```
+- Udarbejd en interessent- og behovsanalyse for en valgfri MCP-integration.
+- Beskriv hvilke capabilities der skal være resources, tools eller prompts.
+- Formulér funktionelle krav og kvalitetskrav til eksempelvis sikkerhed, svartid og fejlhåndtering.
+- Udarbejd use cases, domænemodel, komponentdiagram og sekvensdiagram.
+- Gennemfør et arkitekturreview med fokus på ansvar og kobling.
+- Udarbejd acceptkriterier og en testplan før implementering.
+- Vurder om MCP overhovedet er den rigtige integrationsform til problemet.
 
-Inden implementering udarbejdes:
+## Generisk sporbarhed
 
-1. et kort behov
-2. en user story
-3. acceptkriterier
-4. en opdateret datamodel
-5. en sekvens for et MCP-tool-kald
-6. en testtabel
+| Behov | Krav | Design | Verifikation |
+| --- | --- | --- | --- |
+| Brugeren skal kunne hente aktuelle oplysninger | Serveren tilbyder en afgrænset læsefunktion | Resource eller read-only tool | Test med kendte data |
+| En handling må kun udføres med gyldigt input | Input valideres før domænelogikken kaldes | Skema og servicelag | Negative testcases |
+| Fejl skal være forståelige | Interne detaljer skjules for klienten | Fælles fejlhåndtering | Test af forventede fejl |
 
-## Arkitektur
+Tabellen er et mønster og kan tilpasses et selvvalgt domæne.
 
-```mermaid
-flowchart TB
-    UI[Copilot Chat] --> MCP[MCP-lag]
-    MCP --> STORE[TaskStore]
-    STORE --> DATA[(tasks.json)]
-```
+## Forslag til leverance
 
-Et vigtigt arkitekturvalg er, at MCP-laget beskriver serverens capabilities, mens `TaskStore` indeholder domæne- og datalogik.
-
-## Sporbarhed
-
-| Krav | Kode | Test |
-| --- | --- | --- |
-| Prioritet er obligatorisk | `TaskStore.addTask` | Afviser manglende prioritet |
-| Kun tre værdier accepteres | Tool-inputskema | Afviser `URGENT` |
-| Prioritet kan læses | `tasks://all` | Resource indeholder prioritet |
+- kort problem- og behovsbeskrivelse
+- krav og acceptkriterier
+- relevante modeller og diagrammer
+- arkitekturbegrundelse
+- testplan og sporbarhedsmatrix
+- vurdering af MCP som løsningsvalg
 
 ## Kontrolpunkt
 
-De studerende skal kunne forklare, hvorfor en tydelig tool-beskrivelse og et præcist inputskema er en del af systemets krav og kvalitet - ikke blot teknisk konfiguration.
+Den studerende skal kunne begrunde systemets capabilities ud fra behov og krav. Et tool er dermed en del af systemets kontrakt og ikke blot en teknisk funktion, som AI-modellen kan kalde.
 
-## Relevant materiale
+## Kilde
 
-- [Egen MCP-server](../../materiale/egen-mcp-server/README.md)
-- [ByteBites-workshoppen](https://github.com/krollchristensen/ByteBitesJavaCopilotWorkshopTest)
-
+- [Samlet studieordning for Datamatiker 2026](https://www.zealand.dk/wp-content/uploads/2016/09/Samlet-studieordning-Datamatiker-2026.pdf)
