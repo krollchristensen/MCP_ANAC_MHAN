@@ -1,16 +1,18 @@
-# MCP - fra AI-samtale til handling
+## Hvad er MCP?
 
 Model Context Protocol, forkortet MCP, er en åben standard, der gør det muligt at forbinde en AI-applikation med eksterne data, værktøjer og arbejdsgange.
 
-En sprogmodel kan som udgangspunkt kun arbejde med den kontekst, den får i samtalen. Den ved ikke automatisk, hvad der står i en lokal fil, hvilke opgaver der ligger i et projekt, eller hvordan et bestemt system skal ændres. MCP giver AI-applikationen en standardiseret og kontrolleret forbindelse til sådanne systemer.
+En sprogmodel kan som udgangspunkt kun arbejde med den kontekst, den får i samtalen. Den ved ikke automatisk, hvad der står i en lokal fil, hvilke opgaver der ligger i et projekt, eller hvordan et bestemt system skal ændres.
+
+MCP giver AI-applikationen en standardiseret og kontrolleret forbindelse til sådanne systemer.
 
 MCP kan eksempelvis bruges til at lade en AI-agent:
 
-- læse aktuelle data fra en fil, database eller et API
-- kalde en afgrænset funktion
-- oprette eller ændre data gennem et godkendt værktøj
-- anvende en genbrugelig prompt eller arbejdsgang
-- arbejde med GitHub Issues, pull requests og Projects
+* læse aktuelle data fra en fil, database eller et API
+* kalde en afgrænset funktion
+* oprette eller ændre data gennem et godkendt værktøj
+* anvende en genbrugelig prompt eller arbejdsgang
+* arbejde med GitHub Issues, pull requests og Projects
 
 MCP gør ikke sprogmodellen mere intelligent. MCP giver den adgang til aktuelle data og tilladte handlinger.
 
@@ -18,16 +20,178 @@ MCP gør ikke sprogmodellen mere intelligent. MCP giver den adgang til aktuelle 
 
 MCP er især nyttigt, når en AI skal arbejde med data eller systemer uden for selve samtalen.
 
-Eksempler:
+### GitHub
 
-- **GitHub:** AI kan læse Issues, oprette nye Issues og arbejde med pull requests.
-- **Database:** AI kan hente aktuelle kunder, produkter eller opgaver fra en database.
-- **Filsystem:** AI kan læse projektfiler, konfiguration eller lokale dokumenter.
-- **Studieopgaver:** AI kan hente aktuelle tasks, oprette nye og markere dem som færdige.
-- **Virksomhedssystem:** AI kan slå data op i fx et CRM-, helpdesk- eller bookingsystem.
-- **API'er:** AI kan hente aktuelle data fra fx vejr-, økonomi- eller interne API'er.
+En AI-agent kan fx:
 
-Kort sagt: **MCP giver mening, når AI ikke bare skal svare, men også skal kunne hente aktuelle data eller udføre kontrollerede handlinger i andre systemer.**
+* læse aktuelle Issues
+* oprette nye Issues
+* hente information om pull requests
+* arbejde med et GitHub Project
+
+Uden MCP skal man selv programmere integrationen til GitHub API'et. Med MCP får AI-agenten en standardiseret adgang til de funktioner, den må bruge.
+
+### Database og REST API
+
+MCP erstatter ikke et almindeligt REST API eller CRUD.
+
+Man kan fx allerede have et API:
+
+```http
+GET /tasks
+POST /tasks
+PUT /tasks/12
+DELETE /tasks/12
+```
+
+En almindelig applikation programmeres til at kende disse endpoints.
+
+Med MCP kan funktionaliteten i stedet stilles til rådighed for en AI-agent som fx:
+
+```text
+get_tasks()
+create_task(title, description)
+complete_task(id)
+```
+
+Arkitekturen kan derfor være:
+
+```text
+AI-agent
+   |
+  MCP
+   |
+MCP-server
+   |
+REST API
+   |
+Database
+```
+
+MCP fungerer altså som et lag mellem AI-agenten og det eksisterende system.
+
+### Filsystem
+
+En AI-agent kan få kontrolleret adgang til bestemte filer.
+
+Eksempel:
+
+```text
+AI-agent
+   |
+  MCP
+   |
+Projektmappe
+   |
+README.md
+config.json
+tasks.json
+```
+
+Agenten kan fx læse en konfigurationsfil eller hente aktuelle tasks uden først at få hele filens indhold kopieret ind i samtalen.
+
+### Studieopgaver
+
+En MCP-server kan stille studieopgaver til rådighed som både data og funktioner.
+
+Eksempel:
+
+```text
+get_tasks()
+add_task()
+complete_task()
+```
+
+En studerende kan derefter fx spørge:
+
+> Hvilke opgaver mangler jeg?
+
+eller:
+
+> Marker opgave 3 som færdig.
+
+AI-agenten kan herefter vælge det relevante MCP-tool.
+
+### Virksomhedssystemer
+
+MCP kan bruges foran eksisterende systemer som fx:
+
+* CRM
+* helpdesk
+* bookingsystem
+* lagerstyring
+
+En AI-agent kan fx få tools som:
+
+```text
+find_customer()
+create_support_ticket()
+get_available_times()
+```
+
+Agenten behøver ikke kende den bagvedliggende database eller API-struktur.
+
+### Eksterne API'er
+
+MCP kan også bruges til at give en AI-agent adgang til eksterne API'er.
+
+Eksempel:
+
+```text
+get_weather(city)
+get_exchange_rate(currency)
+```
+
+MCP-serveren kalder det relevante API og returnerer resultatet til AI-agenten.
+
+## Hvorfor ikke bare bruge et almindeligt API?
+
+Det kan man sagtens.
+
+Hvis man bygger en almindelig webapplikation, hvor en frontend kalder et backend-API, er REST og CRUD ofte den rigtige løsning.
+
+Forskellen er, at et REST API typisk bruges af en applikation, som på forhånd er programmeret til at kende bestemte endpoints.
+
+```text
+Frontend
+   |
+REST API
+   |
+Database
+```
+
+Med MCP kan funktionaliteten beskrives som tools og resources, som en AI-agent kan opdage og vælge mellem.
+
+```text
+AI-agent
+   |
+  MCP
+   |
+MCP-server
+   |
+REST API / Database / GitHub / Filer
+```
+
+MCP erstatter derfor ikke nødvendigvis REST API'er, databaser eller andre eksisterende systemer.
+
+MCP kan i stedet ligge oven på dem og gøre deres data og funktioner tilgængelige for AI-agenter på en standardiseret måde.
+
+## Hvornår giver MCP mening?
+
+MCP giver især mening, når:
+
+* en AI-agent skal hente aktuelle data
+* en AI-agent skal kunne udføre handlinger
+* flere forskellige systemer skal kunne anvendes af samme AI-agent
+* man ønsker at styre præcist, hvilke funktioner AI-agenten må anvende
+* eksisterende API'er eller systemer skal gøres tilgængelige for AI-agenter
+
+Hvis man blot bygger en almindelig applikation uden AI-agent, er MCP ofte unødvendigt.
+
+Kort sagt:
+
+**REST API og CRUD giver applikationer adgang til funktionalitet. MCP gør data og funktionalitet standardiseret og anvendelig for AI-agenter.**
+
 
 ## Problemet MCP løser
 
