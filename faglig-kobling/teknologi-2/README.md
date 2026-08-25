@@ -1,70 +1,57 @@
 # MCP i Teknologi 2
 
-I Teknologi 2 kan MCP-serveren bruges til at arbejde med containere, deployment, hosting, protokoller og sikkerhedsaspekter ved distribuerede systemer.
+MCP kan indgå i Teknologi II som case for netværk, distribuerede systemer, virtualisering, deployment, hosting, sikkerhed og bæredygtighed. Fokus er på teknologivalget og infrastrukturen, ikke på et bestemt servereksempel.
 
 [Tilbage til den faglige oversigt](../README.md)
 
-## Kobling til læringsmål
+## Kobling til studieordningen
 
-Eksemplet kan understøtte arbejdet med:
+Teknologi 2 omhandler teknologiske problemstillinger inden for netværk, distribuerede systemer og sikkerhed under hensyntagen til bæredygtighed. Deployment og hosting indgår ligeledes i fagelementet.
 
-- virtualisering og containere
-- deployment og hosting
-- udbredte applikationsprotokoller
-- sikkerhedsmæssige begreber og trusler
-- teknologivalg i distribuerede systemer
+| Fokus i faget | Mulig MCP-aktivitet |
+| --- | --- |
+| Distribuerede systemer | Analysér placering og kommunikation mellem host, server og eksterne tjenester |
+| Netværk | Undersøg adresser, porte, DNS, TLS og forbindelsesfejl ved remote MCP |
+| Applikationsprotokoller | Sammenlign MCP-transport med HTTP-baserede API'er |
+| Virtualisering | Kør en MCP-server i en container eller virtuel maskine |
+| Deployment og hosting | Etablér og dokumentér et reproducerbart driftsmiljø |
+| Sikkerhed | Begræns netværk, rettigheder, secrets og adgang til data |
+| Bæredygtighed | Vurder ressourceforbrug, skalering og levetid for infrastrukturen |
 
-## Foreslået aktivitet
+## Mulige undervisningsaktiviteter
 
-De studerende kører først serveren direkte med Node.js og derefter i Docker.
+- Sammenlign lokal afvikling, containerafvikling og en remote tjeneste.
+- Containerisér en selvvalgt MCP-server og dokumentér image, bruger, volumes og netværk.
+- Undersøg Streamable HTTP og de netværkskomponenter, der indgår i forbindelsen.
+- Konfigurér TLS og vurder behovet for autentifikation og autorisation.
+- Design et deployment med miljøvariabler og sikker håndtering af secrets.
+- Mål eller estimer ressourceforbrug ved forskellige driftsformer.
+- Vurder om en gateway giver en reel driftsfordel i en løsning med flere MCP-servere.
 
-```mermaid
-flowchart TB
-    K[Kildekode] --> I[Docker image]
-    I --> C[Container]
-    H[MCP-host] -->|stdio| C
-    C --> S[MCP-server]
-```
+## Sammenligningsramme
 
-De skal sammenligne:
+| Driftsform | Fordel | Udfordring |
+| --- | --- | --- |
+| Lokal proces | Enkel og tæt på brugeren | Afhænger af lokalt miljø og lokale rettigheder |
+| Container | Reproducerbart og isoleret miljø | Kræver styring af volumes, bruger og netværk |
+| Remote service | Fælles adgang og central drift | Kræver sikkerhed, overvågning og skalering |
+| Gateway | Central konfiguration af flere servere | Tilføjer et ekstra drifts- og tillidslag |
 
-- installation og afhængigheder
-- isolation
-- filsystemadgang
-- persistens
-- netværksadgang
-- ressourceforbrug
-- opdatering af serveren
+Docker er en relevant mulighed, men ikke et krav for at anvende MCP fagligt i Teknologi 2.
 
-## Krav til Docker-versionen
+## Forslag til leverance
 
-1. Serveren må ikke køre som root.
-2. Kun nødvendige filer kopieres til imaget.
-3. Der må ikke ligge secrets i imaget.
-4. `-i` anvendes, så `stdio` holdes åben.
-5. De studerende forklarer konsekvensen af `--rm`.
-6. Persistens diskuteres, men er ikke et krav i grundeksemplet.
-
-## Udvidelse med Gateway
-
-Undersøg Docker MCP Toolkit og Gateway som et administrationslag for flere MCP-servere:
-
-```mermaid
-flowchart LR
-    H[AI-host] --> G[Docker MCP Gateway]
-    G --> T[Task MCP]
-    G --> GH[GitHub MCP]
-    G --> P[Andre MCP-servere]
-```
-
-Diskutér hvornår Gateway reducerer konfigurationsarbejde, og hvornår den blot tilføjer et ekstra lag.
+- infrastruktur- og netværksdiagram
+- reproducerbar deploymentvejledning
+- dokumentation af transport og sikkerhedsindstillinger
+- sammenligning af mindst to driftsformer
+- begrundet teknologivalg
+- kort vurdering af ressourceforbrug og bæredygtighed
 
 ## Kontrolpunkt
 
-Den studerende skal kunne begrunde, om serveren bør køres direkte, i en container eller som en remote service.
+Den studerende skal kunne begrunde hvor serveren bør køre, hvordan klienten forbinder, og hvilke konsekvenser valget har for drift, sikkerhed og ressourceforbrug.
 
-## Relevant materiale
+## Kilde
 
-- [Docker-udvidelsen](../../materiale/docker/README.md)
-- [Docker MCP Catalog og Toolkit](https://docs.docker.com/ai/mcp-catalog-and-toolkit/)
-
+- [Samlet studieordning for Datamatiker 2026](https://www.zealand.dk/wp-content/uploads/2016/09/Samlet-studieordning-Datamatiker-2026.pdf)
