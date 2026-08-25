@@ -14,6 +14,21 @@ MCP kan eksempelvis bruges til at lade en AI-agent:
 
 MCP gør ikke sprogmodellen mere intelligent. MCP giver den adgang til aktuelle data og tilladte handlinger.
 
+## Eksempler på hvor MCP giver mening
+
+MCP er især nyttigt, når en AI skal arbejde med data eller systemer uden for selve samtalen.
+
+Eksempler:
+
+- **GitHub:** AI kan læse Issues, oprette nye Issues og arbejde med pull requests.
+- **Database:** AI kan hente aktuelle kunder, produkter eller opgaver fra en database.
+- **Filsystem:** AI kan læse projektfiler, konfiguration eller lokale dokumenter.
+- **Studieopgaver:** AI kan hente aktuelle tasks, oprette nye og markere dem som færdige.
+- **Virksomhedssystem:** AI kan slå data op i fx et CRM-, helpdesk- eller bookingsystem.
+- **API'er:** AI kan hente aktuelle data fra fx vejr-, økonomi- eller interne API'er.
+
+Kort sagt: **MCP giver mening, når AI ikke bare skal svare, men også skal kunne hente aktuelle data eller udføre kontrollerede handlinger i andre systemer.**
+
 ## Problemet MCP løser
 
 Uden MCP skal brugeren ofte kopiere data ind i samtalen:
